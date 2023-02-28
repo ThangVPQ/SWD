@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>invoice_xlsm_exporter_v3.Domain</RootNamespace>
+  </PropertyGroup>
+
+</Project>

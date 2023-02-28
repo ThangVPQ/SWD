@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>invoice_xlsm_exporter_v3.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\invoice-xlsm-exporter-v3.Data\invoice-xlsm-exporter-v3.Data.csproj" />
+    <ProjectReference Include="..\invoice-xlsm-exporter-v3.Service\invoice-xlsm-exporter-v3.Service.csproj" />
+  </ItemGroup>
+
+</Project>
