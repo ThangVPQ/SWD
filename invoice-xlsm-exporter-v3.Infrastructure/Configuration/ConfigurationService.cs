@@ -25,7 +25,7 @@ namespace invoice_xlsm_exporter_v3.Infrastructure.Configuration
         {
             service.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             service.AddScoped<IDapperHelper, DapperHelper>();
-
+            service.AddScoped<IInvoiceService, InvoiceService>();
             service.AddScoped<IUserService, UserService>();
         }
     }

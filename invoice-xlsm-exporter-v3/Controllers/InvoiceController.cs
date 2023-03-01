@@ -14,12 +14,12 @@ namespace invoice_xlsm_exporter_v3.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InvoiceController : Controller
+    public class InvoiceController : ControllerBase
     {
-        IUserService _userService;
-        public InvoiceController(IUserService userService)
+        IInvoiceService _invoiceService;
+        public InvoiceController(IInvoiceService invoiceService)
         {
-            _userService = userService;
+            _invoiceService = invoiceService;
         }
         [HttpPost]
         [Route("importEnvoice")]
@@ -42,6 +42,12 @@ namespace invoice_xlsm_exporter_v3.Controllers
             //doc.LoadXml(result.ToString());
             //var json = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.None, true);
             return Ok(result.ToString());
+        }
+        [Route("getInvoices")]
+        [HttpGet]
+        public async Task<IActionResult> GetList()
+        {
+            return Ok(await _invoiceService.GetInvoices());
         }
     }
 }
