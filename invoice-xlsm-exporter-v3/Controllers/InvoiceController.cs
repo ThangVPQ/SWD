@@ -49,5 +49,18 @@ namespace invoice_xlsm_exporter_v3.Controllers
         {
             return Ok(await _invoiceService.GetInvoices());
         }
+
+        [Route("getInvoicebyId={id:int}")]
+        [HttpGet]
+        public async Task<IActionResult> GetInvoiceById(int id)
+        {
+            return Ok(await _invoiceService.GetInvoiceById(id));
+        }
+        [Route("getInvoicebyIdUser={id:int}")]
+        [HttpGet]
+        public async Task<IActionResult> GetInvoiceByIdUser(int id)
+        {
+            return Ok(await _invoiceService.GetInvoiceByIdUser(id));
+        }
     }
 }

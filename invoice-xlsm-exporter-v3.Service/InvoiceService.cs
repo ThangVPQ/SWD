@@ -12,37 +12,44 @@ namespace invoice_xlsm_exporter_v3.Service
     public class InvoiceService : IInvoiceService
     {
         IRepository<Invoice> _invoiceRepository;
-        public async Task<IEnumerable<Invoice>> GetInvoices()
+        public async Task<ResponseEntity> GetInvoices()
         {
             try
             {
-                return await _invoiceRepository.GetData();
+                return new ResponseEntity(await _invoiceRepository.GetData(), true);
+
             }
             catch(Exception e)
             {
-                return null;
+                return new ResponseEntity(null, false);
             }
         }
         public InvoiceService(IRepository<Invoice> invoiceRepository)
         {
             _invoiceRepository = invoiceRepository;
         }
-        public async Task<IEnumerable<Invoice>> GetInvoiceByIdUser(int id)
+        public async Task<ResponseEntity> GetInvoiceByIdUser(int id)
         {
-            List<Invoice> list =  new List<Invoice>();
-            var data = await _invoiceRepository.GetData();
-            foreach (var invoice in data)
-            {
-                if (invoice.UserId.Equals(id))
+            try {
+                List<Invoice> list = new List<Invoice>();
+                var data = await _invoiceRepository.GetData();
+                foreach (var invoice in data)
                 {
-                    list.Add(invoice);
+                    if (invoice.UserId.Equals(id))
+                    {
+                        list.Add(invoice);
+                    }
                 }
+                return new ResponseEntity(list, true);
+            }catch(Exception e)
+            {
+                return new ResponseEntity(null, false);
             }
-            return list;
+           
         }
         public async Task<ResponseEntity> GetInvoiceById(int id)
         {
-            return new ResponseEntity(_invoiceRepository.GetById(id), false);
+            return new ResponseEntity(await _invoiceRepository.GetById(id), true);
         }
 
     }

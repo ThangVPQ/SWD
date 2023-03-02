@@ -38,47 +38,49 @@ namespace invoice_xlsm_exporter_v3.Service
             _userRepository = userRepository;
             _dapperHelper = dapperHelper;
         }
-        public async Task<IEnumerable<User>> GetUsers()
+        public async Task<ResponseEntity> GetUsers()
         {
-            return await _userRepository.GetData();
-            //use dapper (sql string to query)
-            //string sql = $"SELECT * FROM Users";
-            //return await _dapperHelper.ExcuteSqlReturnList<User>(sql);
+            try
+            {
+                return new ResponseEntity(await _userRepository.GetData(), true);
+
+            }
+            catch (Exception e)
+            {
+                return new ResponseEntity(null, false);
+            }
         }
 
-        public async Task<User> GetUserById(int userId)
+        public async Task<ResponseEntity> GetUserById(int userId)
         {
-            return await _userRepository.GetById(userId);
+            return new ResponseEntity(await _userRepository.GetById(userId), true);
         }
         public async Task<ResponseEntity> GetUserByName(String userName)
         {
-            //return await _userRepository.GetData();
-            //use dapper (sql string to query)
-            var data = await GetUsers();
-            foreach (var user in data)
+            try
             {
-                if (user.UserName.Equals(userName)) return new ResponseEntity(user, true);
+                var data = await _userRepository.GetData();
+                foreach (var user in data)
+                {
+                    if (user.UserName.Equals(userName)) return new ResponseEntity(user, true);
+                }
+                return new ResponseEntity(null, false);
+            }catch(Exception e)
+            {
+                return new ResponseEntity(null, false);
             }
-            return new ResponseEntity(null, false);
+           
         }
         public async Task<ResponseEntity> CheckLogin(String userName, String password)
         {
-
-            var data = await GetUsers();
+            var data = await _userRepository.GetData();
             foreach (var user in data)
             {
                 if (user.UserName.Equals(userName) && user.Password.Equals(HashData(password))) return new ResponseEntity(user, true);
             }
             return new ResponseEntity(null, false);
         }
-
-        //public async Task<User> CheckUser(string userName, string password)
-        //{
-        //    var user = await _userRepository.GetData<User>(u => u.Username == username && u.Password == password);
-        //    return user.Any();
-        //}
-
-        public ResponseEntity InsertUser(User user)
+        public async Task<ResponseEntity> InsertUser(User user)
         {
             user.Role = "USER";
             user.CreatedDay = DateTime.Now;

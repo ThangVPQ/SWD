@@ -20,7 +20,7 @@ namespace invoice_xlsm_exporter_v3.Controllers
         [Route("createAccount")]
         public async Task<IActionResult> CreateAccount([FromBody] User user)
         {
-            return Ok(_userService.InsertUser(user));
+            return Ok(await _userService.InsertUser(user));
         }
         [HttpPost]
         [Route("login")]

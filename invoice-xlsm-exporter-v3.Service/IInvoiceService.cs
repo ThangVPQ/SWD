@@ -10,8 +10,8 @@ namespace invoice_xlsm_exporter_v3.Service
 {
     public interface IInvoiceService
     {
-        Task<IEnumerable<Invoice>> GetInvoices();
-        Task<IEnumerable<Invoice>> GetInvoiceByIdUser(int id);
+        Task<ResponseEntity> GetInvoices();
+        Task<ResponseEntity> GetInvoiceByIdUser(int id);
         Task<ResponseEntity> GetInvoiceById(int id);
 
     }

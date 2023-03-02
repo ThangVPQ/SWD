@@ -17,23 +17,12 @@ namespace invoice_xlsm_exporter_v3.Controllers
             _userService = userService;
         }
 
-        [Route("get-users")]
+        [Route("getUsers")]
         [HttpGet]
         public async Task<IActionResult> GetList()
         {
             return Ok(await _userService.GetUsers());
         }
-
-
-
-
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> Create([FromBody] )
-        //{
-        //    return Ok(await _userService.GetUsers());
-        //}
 
         [Route("{id:int}")]
         [HttpGet]
@@ -41,27 +30,5 @@ namespace invoice_xlsm_exporter_v3.Controllers
         {
             return Ok(await _userService.GetUserById(id));
         }
-
-        //[Route("get-product-by-name")]
-        //[HttpGet]
-        //public async Task<IActionResult> GetByName(string name, string sort, string description)
-        //{
-        //    return Ok(await _userService.GetUserById(id));
-        //}
-
-        //[Route("{id:int}")]
-        //[HttpGet]
-        //public async Task<IActionResult> CheckUser(string userName, string password)
-        //{
-        //    return Ok(await _userService.GetUserById(id));
-        //}
-
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> Index()
-        //{
-        //    return Ok(await _userService.GetUsers());
-        //}
     }
 }
