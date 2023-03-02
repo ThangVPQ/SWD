@@ -47,6 +47,11 @@ namespace invoice_xlsm_exporter_v3
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "invoice_xlsm_exporter_v3 v1"));
             }
+            app.UseCors(x => x
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .SetIsOriginAllowed(origin => true) // allow any origin
+               .AllowCredentials()); // allow credentials
 
             app.UseHttpsRedirection();
 
