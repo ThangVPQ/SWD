@@ -106,8 +106,9 @@ namespace invoice_xlsm_exporter_v3.Service
             if (GetUserByName(user.UserName).Result.Status)
             {
                 User userUpdate = (User)GetUserByName(user.UserName).Result.Data;
-                userUpdate.Email = user.Email;
-                userUpdate.Password = HashData(user.Password);
+                if (user.Email != null) userUpdate.Email = user.Email;
+                if(user.Status != null) userUpdate.Status = user.Status;
+                if(user.Password !=null) userUpdate.Password = HashData(user.Password);
                 _userRepository.Update(userUpdate);
                 _userRepository.Commit();
                 return new ResponseEntity(user, true);

@@ -1,5 +1,8 @@
 ﻿using Aspose.Cells;
 using invoice_xlsm_exporter_v3.Service;
+using invoice_xlsm_exporter_v3.Service.Dto.Easyinvoice;
+using invoice_xlsm_exporter_v3.Service.Dto.Meinvoice;
+using invoice_xlsm_exporter_v3.Service.Minvoice;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -33,15 +36,30 @@ namespace invoice_xlsm_exporter_v3.Controllers
                     result.AppendLine(reader.ReadLine());
                 }
             }
-            XmlDocument doc = new XmlDocument();
-            var dataDir = @"F:\thang\";
-
-            Workbook workbook = new Workbook();
-            workbook.ImportXml(dataDir+ "ihoadon.vn_0102519041_269_05012023.xml", "Sheet1", 0, 0);
-            workbook.Save(dataDir + "data_xml.xlsx", Aspose.Cells.SaveFormat.Auto);
-            //doc.LoadXml(result.ToString());
-            //var json = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.None, true);
-            return Ok(result.ToString());
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(Invoice));
+                MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(result.Replace("xmlns", "XMLNS").ToString()));
+                Invoice resultingMessage = (Invoice)serializer.Deserialize(memStream);
+                return Ok(resultingMessage);
+            }
+            catch(Exception e)
+            {
+                try
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(HoaDonDienTu));
+                    MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(result.Replace("xmlns", "XMLNS").ToString()));
+                    HoaDonDienTu resultingMessage = (HoaDonDienTu)serializer.Deserialize(memStream);
+                    return Ok(resultingMessage);
+                }
+                catch
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(Meinvoice));
+                    MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(result.Replace("XMLNS:inv","inv").Replace("XMLNS:ds", "ds").Replace("inv:","").ToString()));
+                    Meinvoice resultingMessage = (Meinvoice)serializer.Deserialize(memStream);
+                    return Ok(resultingMessage);
+                }
+            }
         }
         [Route("getInvoices")]
         [HttpGet]
