@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dLKkl3jHtZRZXqx7koq5HZ9MvWGxrru2YA0wVK4KVI63tVguZ30AWyTfHOBb18oGbXw6kPNHFsbppSjgaWXv+Q==",
+  "dgSpecHash": "sjTo+vOwXRiO8dn4rOgcQEb1NHA0ihDGluCjj3v6M7Sy4H0ZLTxCMi64hgDtvyQmrsUuXAKsXaWg5h1apn2wMw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
+  "projectFilePath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

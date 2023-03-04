@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj": {}
+    "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj": {
+    "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj",
+        "projectUniqueName": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj",
         "projectName": "invoice-xlsm-exporter-v3.Data",
-        "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\obj\\",
+        "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj",
+        "packagesPath": "C:\\Users\\phata\\.nuget\\packages\\",
+        "outputPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phata\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj"
+              "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj": {
+                "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj"
               }
             }
           }
@@ -75,7 +75,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -84,21 +85,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj": {
+    "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
+        "projectUniqueName": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
         "projectName": "invoice-xlsm-exporter-v3.Domain",
-        "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\obj\\",
+        "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
+        "packagesPath": "C:\\Users\\phata\\.nuget\\packages\\",
+        "outputPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phata\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,7 +130,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -138,21 +140,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj": {
+    "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj",
+        "projectUniqueName": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj",
         "projectName": "invoice-xlsm-exporter-v3.Infrastructure",
-        "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\obj\\",
+        "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\invoice-xlsm-exporter-v3.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\phata\\.nuget\\packages\\",
+        "outputPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phata\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,11 +168,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj"
+              "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj": {
+                "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj"
               },
-              "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj"
+              "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj": {
+                "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj"
               }
             }
           }
@@ -204,7 +206,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -213,21 +216,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj": {
+    "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj",
+        "projectUniqueName": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj",
         "projectName": "invoice-xlsm-exporter-v3.Service",
-        "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\obj\\",
+        "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\invoice-xlsm-exporter-v3.Service.csproj",
+        "packagesPath": "C:\\Users\\phata\\.nuget\\packages\\",
+        "outputPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phata\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -241,11 +244,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj"
+              "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj": {
+                "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Data\\invoice-xlsm-exporter-v3.Data.csproj"
               },
-              "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj": {
-                "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj"
+              "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj": {
+                "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj"
               }
             }
           }
@@ -283,7 +286,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -292,7 +296,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -19,6 +19,54 @@ namespace invoice_xlsm_exporter_v3.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ComAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ComName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ComTaxCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companys");
+                });
+
+            modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CusAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CusTaxCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customers");
+                });
+
             modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Invoice", b =>
                 {
                     b.Property<int>("Id")
@@ -32,8 +80,14 @@ namespace invoice_xlsm_exporter_v3.Data.Migrations
                     b.Property<DateTime>("ArisingDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CurrencyUnit")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ImportedDate")
                         .HasColumnType("datetime2");
@@ -71,9 +125,76 @@ namespace invoice_xlsm_exporter_v3.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("CustomerId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Invoices");
+                });
+
+            modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Invoice_Product", b =>
+                {
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("AddDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("InvoiceId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Invoice_Products");
+                });
+
+            modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Pos")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProdName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ProdPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProdType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProdUnit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Vat")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.User", b =>
@@ -113,13 +234,54 @@ namespace invoice_xlsm_exporter_v3.Data.Migrations
 
             modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Invoice", b =>
                 {
+                    b.HasOne("invoice_xlsm_exporter_v3.Domain.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId");
+
+                    b.HasOne("invoice_xlsm_exporter_v3.Domain.Entities.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId");
+
                     b.HasOne("invoice_xlsm_exporter_v3.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Company");
+
+                    b.Navigation("Customer");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Invoice_Product", b =>
+                {
+                    b.HasOne("invoice_xlsm_exporter_v3.Domain.Entities.Invoice", "Invoice")
+                        .WithMany("Invoice_Products")
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("invoice_xlsm_exporter_v3.Domain.Entities.Product", "Product")
+                        .WithMany("Invoice_Products")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Invoice");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Invoice", b =>
+                {
+                    b.Navigation("Invoice_Products");
+                });
+
+            modelBuilder.Entity("invoice_xlsm_exporter_v3.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("Invoice_Products");
                 });
 #pragma warning restore 612, 618
         }
