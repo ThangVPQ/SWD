@@ -22,3 +22,15 @@ C:\Users\admin\Desktop\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\
 C:\Users\admin\Desktop\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\refint\invoice-xlsm-exporter-v3.Domain.dll
 C:\Users\admin\Desktop\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.pdb
 C:\Users\admin\Desktop\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\ref\invoice-xlsm-exporter-v3.Domain.dll
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\bin\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.deps.json
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\bin\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.dll
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\bin\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.pdb
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.csproj.AssemblyReference.cache
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.AssemblyInfoInputs.cache
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.AssemblyInfo.cs
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.csproj.CoreCompileInputs.cache
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.dll
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\refint\invoice-xlsm-exporter-v3.Domain.dll
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\invoice-xlsm-exporter-v3.Domain.pdb
+D:\ongit-project\invoice-xlsm-exporter-v3\invoice-xlsm-exporter-v3.Domain\obj\Debug\net5.0\ref\invoice-xlsm-exporter-v3.Domain.dll

@@ -38,6 +38,15 @@ namespace invoice_xlsm_exporter_v3.Domain.Entities
         [ForeignKey("UserId")]
         public User User { get; set; }
 
+        [ForeignKey("CustomerId")]
+        public Customer Customer { get; set; }
+
+        [ForeignKey("CompanyId")]
+        public Company Company { get; set; }
+
+        public ICollection<Invoice_Product> Invoice_Products { get; set; }
+
+
 
     }
 }

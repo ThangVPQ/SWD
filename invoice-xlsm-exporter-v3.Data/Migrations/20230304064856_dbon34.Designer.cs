@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using invoice_xlsm_exporter_v3.Data;
 
 namespace invoice_xlsm_exporter_v3.Data.Migrations
 {
     [DbContext(typeof(InvoiceXlsmExportexContext))]
-    partial class InvoiceXlsmExportexContextModelSnapshot : ModelSnapshot
+    [Migration("20230304064856_dbon34")]
+    partial class dbon34
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
