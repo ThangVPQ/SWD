@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\phata\\.nuget\\packages\\": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
       "projectName": "invoice-xlsm-exporter-v3.Domain",
-      "projectPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
-      "packagesPath": "C:\\Users\\phata\\.nuget\\packages\\",
-      "outputPath": "D:\\ongit-project\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\obj\\",
+      "projectPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\invoice-xlsm-exporter-v3.Domain.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\admin\\Desktop\\invoice-xlsm-exporter-v3\\invoice-xlsm-exporter-v3.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\phata\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -51,8 +51,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -61,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.309\\RuntimeIdentifierGraph.json"
       }
     }
   }

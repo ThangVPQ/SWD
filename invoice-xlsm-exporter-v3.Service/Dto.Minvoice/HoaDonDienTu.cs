@@ -8,13 +8,6 @@ using System.Xml.Serialization;
 
 namespace invoice_xlsm_exporter_v3.Service.Minvoice
 {
-	// using System.Xml.Serialization;
-	// XmlSerializer serializer = new XmlSerializer(typeof(HoaDonDienTu));
-	// using (StringReader reader = new StringReader(xml))
-	// {
-	//    var test = (HoaDonDienTu)serializer.Deserialize(reader);
-	// }
-
 	[XmlRoot(ElementName = "ThongTinHoaDon")]
 	public class ThongTinHoaDon
 	{
