@@ -61,7 +61,7 @@ namespace invoice_xlsm_exporter_v3.Service.Dto.Meinvoice
 	{
 
 		[XmlElement(ElementName = "item")]
-		public Item Item { get; set; }
+		public List<Item> Item { get; set; }
 	}
 
 	[XmlRoot(ElementName = "invoiceTaxBreakdown")]

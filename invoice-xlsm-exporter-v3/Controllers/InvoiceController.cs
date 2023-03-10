@@ -28,38 +28,7 @@ namespace invoice_xlsm_exporter_v3.Controllers
         [Route("importEnvoice")]
         public async Task<IActionResult> ImportInvoice([FromHeader] string userName, [FromForm] IFormFile file)
         {
-            var result = new StringBuilder();
-            using (var reader = new StreamReader(file.OpenReadStream()))
-            {
-                while (reader.Peek() >= 0)
-                {
-                    result.AppendLine(reader.ReadLine());
-                }
-            }
-            try
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(Invoice));
-                MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(result.Replace("xmlns", "XMLNS").ToString()));
-                Invoice resultingMessage = (Invoice)serializer.Deserialize(memStream);
-                return Ok(resultingMessage);
-            }
-            catch(Exception e)
-            {
-                try
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(HoaDonDienTu));
-                    MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(result.Replace("xmlns", "XMLNS").ToString()));
-                    HoaDonDienTu resultingMessage = (HoaDonDienTu)serializer.Deserialize(memStream);
-                    return Ok(resultingMessage);
-                }
-                catch
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(Meinvoice));
-                    MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(result.Replace("XMLNS:inv","inv").Replace("XMLNS:ds", "ds").Replace("inv:","").ToString()));
-                    Meinvoice resultingMessage = (Meinvoice)serializer.Deserialize(memStream);
-                    return Ok(resultingMessage);
-                }
-            }
+            return Ok(await _invoiceService.ExportFile(userName, file));
         }
         [Route("getInvoices")]
         [HttpGet]

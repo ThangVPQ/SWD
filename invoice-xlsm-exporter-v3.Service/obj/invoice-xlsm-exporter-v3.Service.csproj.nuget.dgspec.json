@@ -189,9 +189,21 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Google.Cloud.Storage.V1": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "IronXL.Excel": {
+              "target": "Package",
+              "version": "[2023.2.5, )"
+            },
             "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
             },
             "Portable.BouncyCastle": {
               "target": "Package",
