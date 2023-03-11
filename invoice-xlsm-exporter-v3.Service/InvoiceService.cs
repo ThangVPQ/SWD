@@ -278,7 +278,7 @@ namespace invoice_xlsm_exporter_v3.Service
                 {
                 };
                 var result = await _storageClient.UploadObjectAsync(_bucketName, objectName, null, fileStream, uploadObjectOptions);
-                string respone = result.MediaLink.Replace("storage", "firebasestorage").Replace("/download/storage","").Replace("v1","v0");
+                string respone = result.MediaLink.Replace("/download/storage","").Replace("storage", "firebasestorage").Replace("v1","v0");
                 return respone;
             }
         }
