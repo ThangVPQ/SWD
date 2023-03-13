@@ -9,6 +9,7 @@ namespace invoice_xlsm_exporter_v3.Service
 {
     public interface IUserService
     {
+        Task<ResponseEntity> GetUserByName(String userName);
         void DeleteUser(User user);
         void DeleteUser(Expression<Func<User, bool>> expression);
         Task<ResponseEntity> GetUserById(int userId);
