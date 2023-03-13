@@ -80,15 +80,35 @@ namespace invoice_xlsm_exporter_v3.Service
             }
             return new ResponseEntity(null, false);
         }
+        private async Task<int> CheckNewId()
+        {
+            int id = 0;
+            var data = await _userRepository.GetData();
+            foreach (var user in data)
+            {
+               if (user.Id > id)
+                {
+                    id = user.Id;
+                }
+            }
+            return id++;
+        }
         public async Task<ResponseEntity> InsertUser(User user)
         {
+            int id = 0;
             user.Role = "USER";
             user.CreatedDay = DateTime.Now;
             user.Status = "active";
+            var data = await _userRepository.GetData();
+            foreach (var u in data)
+            {
+                id = u.Id;
+            }
             if (!GetUserByName(user.UserName).Result.Status){
                 user.Password = HashData(user.Password);
                 _userRepository.Insert(user);
                 _userRepository.Commit();
+                user.Id = id++;
                 return new ResponseEntity(user, true);
             }
             return new ResponseEntity(user, false);
@@ -107,7 +127,7 @@ namespace invoice_xlsm_exporter_v3.Service
             {
                 User userUpdate = (User)GetUserByName(user.UserName).Result.Data;
                 if (user.Email != null) userUpdate.Email = user.Email;
-                if(user.Status != null) userUpdate.Status = user.Status;
+                if(user.Status.Equals("active") || user.Status.Equals("disable")) userUpdate.Status = user.Status;
                 if(user.Password !=null) userUpdate.Password = HashData(user.Password);
                 _userRepository.Update(userUpdate);
                 _userRepository.Commit();
