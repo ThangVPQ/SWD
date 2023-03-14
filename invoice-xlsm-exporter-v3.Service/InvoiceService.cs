@@ -113,8 +113,6 @@ namespace invoice_xlsm_exporter_v3.Service
             User user = (User)_userService.GetUserByName(username).Result.Data;
             if (user != null)
             {
-                if (CheckInvoiceAsync(invoice.Content.SerialNo, user.Id).Result)
-                {
                     Invoice _invoice = new Invoice();
                     _invoice.SerialNo = invoice.Content.SerialNo;
                     _invoice.InvoiceName = invoice.Content.InvoiceName;
@@ -133,7 +131,6 @@ namespace invoice_xlsm_exporter_v3.Service
                     _invoice.ImportedDate = DateTime.Now;
                     _invoiceRepository.Insert(_invoice);
                     _invoiceRepository.Commit();
-                }
             }
 
         }
@@ -142,8 +139,6 @@ namespace invoice_xlsm_exporter_v3.Service
             User user = (User)_userService.GetUserByName(username).Result.Data;
             if (user != null)
             {
-                if (CheckInvoiceAsync(invoice.HoaDon.ThongTinHoaDon.Kyhieu, user.Id).Result)
-                {
                     Invoice _invoice = new Invoice();
                     _invoice.SerialNo = invoice.HoaDon.ThongTinHoaDon.Kyhieu;
                     _invoice.InvoiceName = invoice.HoaDon.ThongTinHoaDon.TenHoaDon;
@@ -162,7 +157,7 @@ namespace invoice_xlsm_exporter_v3.Service
                     _invoice.ImportedDate = DateTime.Now;
                     _invoiceRepository.Insert(_invoice);
                     _invoiceRepository.Commit();
-                }
+                
             }
                 
         }
@@ -170,8 +165,6 @@ namespace invoice_xlsm_exporter_v3.Service
         {
             User user = (User)_userService.GetUserByName(username).Result.Data;
             if (user != null) {
-                if (CheckInvoiceAsync(invoice.InvoiceData.InvoiceSeries, user.Id).Result)
-                {
                     Invoice _invoice = new Invoice();
                     _invoice.SerialNo = invoice.InvoiceData.InvoiceSeries;
                     _invoice.InvoiceName = invoice.InvoiceData.InvoiceName;
@@ -190,7 +183,6 @@ namespace invoice_xlsm_exporter_v3.Service
                     _invoice.User = user;
                     _invoiceRepository.Insert(_invoice);
                     _invoiceRepository.Commit();
-                }
             }
         }
         private async Task<bool> CheckInvoiceAsync(String seriNo, int userid)
