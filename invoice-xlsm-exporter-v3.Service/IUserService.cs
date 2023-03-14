@@ -15,7 +15,7 @@ namespace invoice_xlsm_exporter_v3.Service
         Task<ResponseEntity> GetUserById(int userId);
         Task<ResponseEntity> GetUsers();
         Task<ResponseEntity> InsertUser(User user);
-        Task UpLoadFeedBackAsync(string username, string feedback);
+        Task<ResponseEntity> UpLoadFeedBackAsync(string username, string comment);
         Task InsertUsers(IEnumerable<User> users);
         Task<ResponseEntity> UpdateUser(User user);
         Task<ResponseEntity> CheckLogin(String userName, String password);

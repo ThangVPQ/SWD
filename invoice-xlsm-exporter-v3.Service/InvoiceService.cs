@@ -111,84 +111,94 @@ namespace invoice_xlsm_exporter_v3.Service
         private async void InsertEasyinvoice(Easyinvoice invoice, String username)
         {
             User user = (User)_userService.GetUserByName(username).Result.Data;
-            if (CheckInvoiceAsync(invoice.Content.SerialNo).Result)
+            if (user != null)
             {
-                Invoice _invoice = new Invoice();
-                _invoice.SerialNo = invoice.Content.SerialNo;
-                _invoice.InvoiceName = invoice.Content.InvoiceName;
-                _invoice.InvoiceNo = invoice.Content.InvoiceNo;
-                _invoice.InvoicePattern = invoice.Content.InvoicePattern;
-                _invoice.ArisingDate = DateTime.Parse(invoice.Content.ArisingDate);
-                _invoice.PaymentMethod = invoice.Content.PaymentMethod;
-                _invoice.Total = invoice.Content.Total;
-                _invoice.VatAmount = invoice.Content.VATAmount;
-                _invoice.Amount = invoice.Content.Amount;
-                _invoice.VarRate = invoice.Content.VATRate;
-                _invoice.CurrencyUnit = invoice.Content.CurrencyUnit;
-                _invoice.status = "active";
-                _invoice.UserId = user.Id;
-                _invoice.ImportedDate = DateTime.Now;
-                _invoiceRepository.Insert(_invoice);
-                _invoiceRepository.Commit();
+                if (CheckInvoiceAsync(invoice.Content.SerialNo, user.Id).Result)
+                {
+                    Invoice _invoice = new Invoice();
+                    _invoice.SerialNo = invoice.Content.SerialNo;
+                    _invoice.InvoiceName = invoice.Content.InvoiceName;
+                    _invoice.InvoiceNo = invoice.Content.InvoiceNo;
+                    _invoice.InvoicePattern = invoice.Content.InvoicePattern;
+                    _invoice.ArisingDate = DateTime.Parse(invoice.Content.ArisingDate);
+                    _invoice.PaymentMethod = invoice.Content.PaymentMethod;
+                    _invoice.Total = invoice.Content.Total;
+                    _invoice.VatAmount = invoice.Content.VATAmount;
+                    _invoice.Amount = invoice.Content.Amount;
+                    _invoice.VarRate = invoice.Content.VATRate;
+                    _invoice.CurrencyUnit = invoice.Content.CurrencyUnit;
+                    _invoice.status = "active";
+                    _invoice.UserId = user.Id;
+                    _invoice.User = user;
+                    _invoice.ImportedDate = DateTime.Now;
+                    _invoiceRepository.Insert(_invoice);
+                    _invoiceRepository.Commit();
+                }
             }
 
         }
         private async void InsertMinvoice(HoaDonDienTu invoice, String username)
         {
             User user = (User)_userService.GetUserByName(username).Result.Data;
-            if (CheckInvoiceAsync(username).Result)
+            if (user != null)
             {
-                Invoice _invoice = new Invoice();
-                _invoice.SerialNo = invoice.HoaDon.ThongTinHoaDon.Kyhieu;
-                _invoice.InvoiceName = invoice.HoaDon.ThongTinHoaDon.TenHoaDon;
-                _invoice.InvoiceNo = invoice.HoaDon.ThongTinHoaDon.SoHoaDon;
-                _invoice.InvoicePattern = invoice.HoaDon.ThongTinHoaDon.MauSo;
-                _invoice.ArisingDate = invoice.HoaDon.ThongTinHoaDon.NgayHoaDon;
-                _invoice.PaymentMethod = invoice.HoaDon.ThongTinHoaDon.HinhThucThanhToan;
-                _invoice.Total = invoice.HoaDon.ThongTinHoaDon.TongTien;
-                _invoice.VatAmount = invoice.HoaDon.ThongTinHoaDon.TongTienThue;
-                _invoice.Amount = int.Parse(invoice.HoaDon.ThongTinHoaDon.TongTienTruocThue.ToString());
-                _invoice.VarRate = invoice.HoaDon.ThongTinHoaDon.PTThue;
-                _invoice.CurrencyUnit = invoice.HoaDon.ThongTinHoaDon.MaTienTe;
-                _invoice.status = "active";
-                _invoice.UserId = user.Id;
-                _invoice.ImportedDate = DateTime.Now;
-                _invoiceRepository.Insert(_invoice);
-                _invoiceRepository.Commit();
+                if (CheckInvoiceAsync(invoice.HoaDon.ThongTinHoaDon.Kyhieu, user.Id).Result)
+                {
+                    Invoice _invoice = new Invoice();
+                    _invoice.SerialNo = invoice.HoaDon.ThongTinHoaDon.Kyhieu;
+                    _invoice.InvoiceName = invoice.HoaDon.ThongTinHoaDon.TenHoaDon;
+                    _invoice.InvoiceNo = invoice.HoaDon.ThongTinHoaDon.SoHoaDon;
+                    _invoice.InvoicePattern = invoice.HoaDon.ThongTinHoaDon.MauSo;
+                    _invoice.ArisingDate = invoice.HoaDon.ThongTinHoaDon.NgayHoaDon;
+                    _invoice.PaymentMethod = invoice.HoaDon.ThongTinHoaDon.HinhThucThanhToan;
+                    _invoice.Total = invoice.HoaDon.ThongTinHoaDon.TongTien;
+                    _invoice.VatAmount = invoice.HoaDon.ThongTinHoaDon.TongTienThue;
+                    _invoice.Amount = int.Parse(invoice.HoaDon.ThongTinHoaDon.TongTienTruocThue.ToString());
+                    _invoice.VarRate = invoice.HoaDon.ThongTinHoaDon.PTThue;
+                    _invoice.CurrencyUnit = invoice.HoaDon.ThongTinHoaDon.MaTienTe;
+                    _invoice.status = "active";
+                    _invoice.UserId = user.Id;
+                    _invoice.User = user;
+                    _invoice.ImportedDate = DateTime.Now;
+                    _invoiceRepository.Insert(_invoice);
+                    _invoiceRepository.Commit();
+                }
             }
-
+                
         }
         private async void InsertMeinvoice(Meinvoice invoice, String username)
         {
             User user = (User)_userService.GetUserByName(username).Result.Data;
-            if (CheckInvoiceAsync(invoice.InvoiceData.InvoiceSeries).Result)
-            {
-                Invoice _invoice = new Invoice();
-                _invoice.SerialNo = invoice.InvoiceData.InvoiceSeries;
-                _invoice.InvoiceName = invoice.InvoiceData.InvoiceName;
-                _invoice.InvoiceNo = invoice.InvoiceData.InvoiceNumber;
-                _invoice.InvoicePattern = invoice.InvoiceData.InvoiceType;
-                _invoice.ArisingDate = invoice.InvoiceData.InvoiceIssuedDate;
-                _invoice.PaymentMethod = invoice.InvoiceData.Payments.Payment.PaymentMethodName;
-                _invoice.Total = invoice.InvoiceData.TotalAmountWithVAT;
-                _invoice.VatAmount = invoice.InvoiceData.TotalVATAmount;
-                _invoice.Amount = invoice.InvoiceData.TotalAmountWithoutVAT;
-                _invoice.VarRate = invoice.InvoiceData.InvoiceTaxBreakdowns.InvoiceTaxBreakdown.VatPercentage;
-                _invoice.CurrencyUnit = "VND";
-                _invoice.status = "active";
-                _invoice.UserId = user.Id;
-                _invoice.ImportedDate = DateTime.Now;
-                _invoiceRepository.Insert(_invoice);
-                _invoiceRepository.Commit();
+            if (user != null) {
+                if (CheckInvoiceAsync(invoice.InvoiceData.InvoiceSeries, user.Id).Result)
+                {
+                    Invoice _invoice = new Invoice();
+                    _invoice.SerialNo = invoice.InvoiceData.InvoiceSeries;
+                    _invoice.InvoiceName = invoice.InvoiceData.InvoiceName;
+                    _invoice.InvoiceNo = invoice.InvoiceData.InvoiceNumber;
+                    _invoice.InvoicePattern = invoice.InvoiceData.InvoiceType;
+                    _invoice.ArisingDate = invoice.InvoiceData.InvoiceIssuedDate;
+                    _invoice.PaymentMethod = invoice.InvoiceData.Payments.Payment.PaymentMethodName;
+                    _invoice.Total = invoice.InvoiceData.TotalAmountWithVAT;
+                    _invoice.VatAmount = invoice.InvoiceData.TotalVATAmount;
+                    _invoice.Amount = invoice.InvoiceData.TotalAmountWithoutVAT;
+                    _invoice.VarRate = invoice.InvoiceData.InvoiceTaxBreakdowns.InvoiceTaxBreakdown.VatPercentage;
+                    _invoice.CurrencyUnit = "VND";
+                    _invoice.status = "active";
+                    _invoice.UserId = user.Id;
+                    _invoice.ImportedDate = DateTime.Now;
+                    _invoice.User = user;
+                    _invoiceRepository.Insert(_invoice);
+                    _invoiceRepository.Commit();
+                }
             }
-
         }
-        private async Task<bool> CheckInvoiceAsync(String seriNo)
+        private async Task<bool> CheckInvoiceAsync(String seriNo, int userid)
         {
             var data = await _invoiceRepository.GetData();
             foreach (var u in data)
             {
-                if (u.SerialNo.Equals(seriNo)) return false;
+                if (u.SerialNo.Equals(seriNo) && u.UserId == userid) return false;
             }
             return true;
         }
