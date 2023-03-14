@@ -21,8 +21,8 @@ namespace invoice_xlsm_exporter_v3.Data
         public DbSet<Company> Companys { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Invoice_Product> Invoice_Products { get; set; }
-        
-        
+
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

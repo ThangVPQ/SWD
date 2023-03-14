@@ -1,12 +1,13 @@
-﻿using invoice_xlsm_exporter_v3.Data.Abstract;
+﻿using Firebase.Database;
+using invoice_xlsm_exporter_v3.Data.Abstract;
 using invoice_xlsm_exporter_v3.Domain.Entities;
 using invoice_xlsm_exporter_v3.Dto;
-using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Crypto.Generators;
+using invoice_xlsm_exporter_v3.Service.Dto;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using XSystem.Security.Cryptography;
 
@@ -65,11 +66,12 @@ namespace invoice_xlsm_exporter_v3.Service
                     if (user.UserName.Equals(userName)) return new ResponseEntity(user, true);
                 }
                 return new ResponseEntity(null, false);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return new ResponseEntity(null, false);
             }
-           
+
         }
         public async Task<ResponseEntity> CheckLogin(String userName, String password)
         {
@@ -86,7 +88,7 @@ namespace invoice_xlsm_exporter_v3.Service
             var data = await _userRepository.GetData();
             foreach (var user in data)
             {
-               if (user.Id > id)
+                if (user.Id > id)
                 {
                     id = user.Id;
                 }
@@ -104,11 +106,12 @@ namespace invoice_xlsm_exporter_v3.Service
             {
                 id = u.Id;
             }
-            if (!GetUserByName(user.UserName).Result.Status){
+            if (!GetUserByName(user.UserName).Result.Status)
+            {
                 user.Password = HashData(user.Password);
                 _userRepository.Insert(user);
                 _userRepository.Commit();
-                user.Id = id++;
+                user.Id = id + 1;
                 return new ResponseEntity(user, true);
             }
             return new ResponseEntity(user, false);
@@ -127,14 +130,14 @@ namespace invoice_xlsm_exporter_v3.Service
             {
                 User userUpdate = (User)GetUserByName(user.UserName).Result.Data;
                 if (user.Email != null) userUpdate.Email = user.Email;
-                if(user.Status.Equals("active") || user.Status.Equals("disable")) userUpdate.Status = user.Status;
-                if(user.Password !=null) userUpdate.Password = HashData(user.Password);
+                if (user.Status.Equals("active") || user.Status.Equals("disable")) userUpdate.Status = user.Status;
+                if (user.Password != null) userUpdate.Password = HashData(user.Password);
                 _userRepository.Update(userUpdate);
                 _userRepository.Commit();
                 return new ResponseEntity(user, true);
             }
             return new ResponseEntity(user, false);
-            
+
         }
 
         public void DeleteUser(User user)
@@ -149,9 +152,41 @@ namespace invoice_xlsm_exporter_v3.Service
             _userRepository.Commit();
 
         }
-
-
-
-
+        public async Task<ResponseEntity> UpLoadFeedBackAsync(string username, string comment)
+        {
+            try {
+                FirebaseClient firebaseClient = new FirebaseClient("https://swdinvoice-45100-default-rtdb.firebaseio.com/");
+                FeedBack feedBack = new FeedBack();
+                feedBack.Username = username;
+                feedBack.Commnent = comment;
+                feedBack.DateCommnet = DateTime.Now;
+                firebaseClient.Child("comment").PostAsync(feedBack);
+                return new ResponseEntity(feedBack, true);
+            }
+            catch (Exception)
+            {
+                return new ResponseEntity(null, false);
+            }
+            
+        }
+        public async Task<ResponseEntity> GetAllFeedBack()
+        {
+            try
+            {
+                FirebaseClient firebaseClient = new FirebaseClient("https://swdinvoice-45100-default-rtdb.firebaseio.com/");
+                var firebaseObject = await firebaseClient.Child("comment").OnceAsync<Object>();
+                var listFeedBack = new List<FeedBack>();
+                foreach (var u in firebaseObject)
+                {
+                    FeedBack fb = JsonConvert.DeserializeObject<FeedBack>(u.Object.ToString());
+                    listFeedBack.Add(fb);
+                }
+                return new ResponseEntity(listFeedBack, true);
+            }
+            catch (Exception)
+            {
+                return new ResponseEntity(null, false);
+            }
+        }
     }
 }

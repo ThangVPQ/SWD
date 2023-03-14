@@ -380,6 +380,21 @@
           "lib/net5.0/Dapper.dll": {}
         }
       },
+      "Firebase.Database/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2",
+          "Rx-Main": "2.2.5"
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/Firebase.Database.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/portable45-net45+win8+wpa81/Firebase.Database.dll": {}
+        }
+      },
       "Google.Api.Gax/4.3.1": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
@@ -959,6 +974,69 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
           "Microsoft.NETCore.Targets": "1.1.3"
+        }
+      },
+      "Rx-Core/2.2.5": {
+        "dependencies": {
+          "Rx-Interfaces": "2.2.5"
+        },
+        "runtime": {
+          "lib/net45/System.Reactive.Core.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.40722"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Reactive.Core.dll": {}
+        }
+      },
+      "Rx-Interfaces/2.2.5": {
+        "runtime": {
+          "lib/net45/System.Reactive.Interfaces.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.40722"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Reactive.Interfaces.dll": {}
+        }
+      },
+      "Rx-Linq/2.2.5": {
+        "dependencies": {
+          "Rx-Core": "2.2.5",
+          "Rx-Interfaces": "2.2.5"
+        },
+        "runtime": {
+          "lib/net45/System.Reactive.Linq.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.40722"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Reactive.Linq.dll": {}
+        }
+      },
+      "Rx-Main/2.2.5": {
+        "dependencies": {
+          "Rx-Core": "2.2.5",
+          "Rx-Interfaces": "2.2.5",
+          "Rx-Linq": "2.2.5",
+          "Rx-PlatformServices": "2.2.5"
+        }
+      },
+      "Rx-PlatformServices/2.2.5": {
+        "dependencies": {
+          "Rx-Core": "2.2.5",
+          "Rx-Interfaces": "2.2.5"
+        },
+        "runtime": {
+          "lib/net45/System.Reactive.PlatformServices.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.40722"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Reactive.PlatformServices.dll": {}
         }
       },
       "SixLabors.ImageSharp/2.1.3": {
@@ -1700,6 +1778,7 @@
       "invoice-xlsm-exporter-v3.Service/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "Firebase.Database": "1.0.0",
           "Google.Cloud.Storage.V1": "4.4.0",
           "IronXL.Excel": "2023.2.5",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "7.0.3",
@@ -3409,6 +3488,13 @@
       "path": "dapper/2.0.123",
       "hashPath": "dapper.2.0.123.nupkg.sha512"
     },
+    "Firebase.Database/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nEALT430lPZ86itiPiih9ndGG4ZV0sy5GaoVgzZTx5icqpFk/aHjIwMOpUqn7+Me0bDL6WOQnYlsnQcTD1t84g==",
+      "path": "firebase.database/1.0.0",
+      "hashPath": "firebase.database.1.0.0.nupkg.sha512"
+    },
     "Google.Api.Gax/4.3.1": {
       "type": "package",
       "serviceable": true,
@@ -3737,6 +3823,41 @@
       "sha512": "sha512-c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==",
       "path": "runtime.native.system/4.3.0",
       "hashPath": "runtime.native.system.4.3.0.nupkg.sha512"
+    },
+    "Rx-Core/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DfWVTfW6tvRkkqpnRHKxPIvaRZyDJGADuqrE6J2nwejOQbLRWi0rNUwXkViDWz++25BGDy3iRE5OE6Dv8mJxYQ==",
+      "path": "rx-core/2.2.5",
+      "hashPath": "rx-core.2.2.5.nupkg.sha512"
+    },
+    "Rx-Interfaces/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FKtG2QfMIeUcfB7r3a89VoAiszX3DTvYETkpC6U0FzWpxRK/mcHyzYOsniDfag+NsDG0P1k1c8yNSefXKp3t2A==",
+      "path": "rx-interfaces/2.2.5",
+      "hashPath": "rx-interfaces.2.2.5.nupkg.sha512"
+    },
+    "Rx-Linq/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UTeCIu3cWPExxmTzdiVq7SalqTBhUaomBTaAC9LpYPoAopjlFwA3hjVWXoLkGlDc/44wqJemJuEwFP00KphiFg==",
+      "path": "rx-linq/2.2.5",
+      "hashPath": "rx-linq.2.2.5.nupkg.sha512"
+    },
+    "Rx-Main/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qdQ6qENEiLsp/LRdzZlLlodihWN8VDjwNfWa8c2ELjEHZgTdKzt1V4i61gkHVtFKZXe8Px6KupbMP3pZ+1tusQ==",
+      "path": "rx-main/2.2.5",
+      "hashPath": "rx-main.2.2.5.nupkg.sha512"
+    },
+    "Rx-PlatformServices/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pMnNEvJVjT+wuDib+W/bi5hhIYcre7dW5yxvKrJxnR4iKJ1VLA/dY2FTtjDriHGx7OeGn12lQewXlH2oHiWFPA==",
+      "path": "rx-platformservices/2.2.5",
+      "hashPath": "rx-platformservices.2.2.5.nupkg.sha512"
     },
     "SixLabors.ImageSharp/2.1.3": {
       "type": "package",

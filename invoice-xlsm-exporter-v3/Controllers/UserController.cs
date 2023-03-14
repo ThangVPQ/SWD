@@ -30,5 +30,18 @@ namespace invoice_xlsm_exporter_v3.Controllers
         {
             return Ok(await _userService.GetUserById(id));
         }
+        [Route("postFeedback")]
+        [HttpPost]
+        public async Task<IActionResult> PushFeedBack([FromHeader] string userName, [FromBody] string feedback)
+        {
+            await _userService.UpLoadFeedBackAsync(userName, feedback);
+            return Ok();
+        }
+        [Route("getAllFeedBack")]
+        [HttpGet]
+        public async Task<IActionResult> getFeedBacks()
+        {
+            return Ok(await _userService.GetAllFeedBack());
+        }
     }
 }
